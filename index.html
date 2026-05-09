@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iat-tugarak - Online Learning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER & NAVIGATION ========== */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn-admin {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-admin:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ========== COURSES SECTION ========== */
+        .courses-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-header {
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .course-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .course-level {
+            font-size: 12px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .course-body {
+            padding: 25px;
+        }
+
+        .course-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .btn-enroll {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-enroll:hover {
+            background: #5568d3;
+        }
+
+        /* ========== VIDEO PLAYER MODAL ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: #333;
+            font-size: 22px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .video-player {
+            background: #000;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            margin-bottom: 20px;
+        }
+
+        .video-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .video-list {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-item {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .video-item:last-child {
+            border-bottom: none;
+        }
+
+        .video-item:hover {
+            background: #f0f0f0;
+        }
+
+        .video-item.active {
+            background: #e8eaf6;
+            border-left: 4px solid #667eea;
+        }
+
+        .video-item-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .video-item-duration {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* ========== MATERIALS SECTION ========== */
+        .materials-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .materials-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .material-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .material-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
+        }
+
+        .material-type {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .material-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .material-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .btn-download {
+            width: 100%;
+            padding: 8px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background: #5568d3;
+        }
+
+        /* ========== QUIZ MODAL ========== */
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .quiz-modal.active {
+            display: flex;
+        }
+
+        .quiz-content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .quiz-header h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .quiz-progress {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .quiz-question {
+            margin-bottom: 25px;
+        }
+
+        .quiz-question h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .quiz-option {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #f0f0f0;
+        }
+
+        .quiz-option input {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .quiz-option label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .quiz-buttons button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit-quiz {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-submit-quiz:hover {
+            background: #5568d3;
+        }
+
+        .btn-cancel-quiz {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .btn-cancel-quiz:hover {
+            background: #c0c0c0;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .modal-content {
+                max-width: 95%;
+            }
+
+            .quiz-content {
+                padding: 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER & NAVIGATION -->
+<header>
+    <nav>
+        <div class="logo">
+            🎓 iat-tugarak
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="scrollToSection('courses')">Courses</a></li>
+            <li><a onclick="scrollToSection('about')">About</a></li>
+            <li><a href="admin.html" class="btn-admin">🔐 Admin Panel</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to iat-tugarak</h1>
+        <p>Learn Web Design, AI, and Cybersecurity from industry experts</p>
+        <div class="hero-buttons">
+            <button class="btn-primary" onclick="scrollToSection('courses')">Explore Courses</button>
+            <button class="btn-secondary" onclick="scrollToSection('about')">Learn More</button>
+        </div>
+    </div>
+</section>
+
+<!-- COURSES SECTION -->
+<section class="courses-section container" id="courses">
+    <h2 class="section-title">Our Courses</h2>
+    <p class="section-subtitle">Choose from our carefully curated learning programs</p>
+    <div class="courses-grid" id="coursesGrid">
+        <!-- Courses will be loaded here -->
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#courses">Courses</a>
+            <a href="admin.html">Admin Panel</a>
+            <a href="#about">About</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 iat-tugarak. All rights reserved. | Learn. Grow. Succeed.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- VIDEO PLAYER MODAL -->
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="videoModalTitle">Video Player</h2>
+            <button class="modal-close" onclick="closeVideoModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="video-player">
+                <iframe id="videoFrame" src="" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3 id="videoTitle">Video Title</h3>
+                <p id="videoDesc">Video description</p>
+            </div>
+            <div class="video-list" id="videoList">
+                <!-- Videos will be listed here -->
+            </div>
+            <div class="materials-section">
+                <h3 style="color: #333; margin-bottom: 15px;">📚 Course Materials</h3>
+                <div class="materials-list" id="materialsList">
+                    <!-- Materials will be listed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- QUIZ MODAL -->
+<div id="quizModal" class="quiz-modal">
+    <div class="quiz-content">
+        <div class="quiz-header">
+            <h2 id="quizTitle">Quiz</h2>
+            <p class="quiz-progress"><span id="quizProgress">1</span> of <span id="quizTotal">5</span></p>
+        </div>
+        <form id="quizForm" onsubmit="submitQuiz(event)">
+            <div id="quizQuestionsContainer"></div>
+            <div class="quiz-buttons">
+                <button type="submit" class="btn-submit-quiz">Submit Answer</button>
+                <button type="button" class="btn-cancel-quiz" onclick="closeQuizModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+    let storage = new DataStorage();
+    let currentCourseId = null;
+    let currentVideoIndex = 0;
+    let currentQuizIndex = 0;
+    let quizAnswers = {};
+
+    // ========== LOAD COURSES ==========
+    function loadCourses() {
+        const courses = storage.getCourses();
+        const coursesGrid = document.getElementById('coursesGrid');
+        coursesGrid.innerHTML = '';
+
+        Object.entries(courses).forEach(([courseId, course]) => {
+            const courseCard = document.createElement('div');
+            courseCard.className = 'course-card';
+            courseCard.style.cursor = 'pointer';
+            
+            const stats = {
+                videos: course.videos?.length || 0,
+                materials: course.materials?.length || 0,
+                quizzes: course.quiz?.length || 0
+            };
+
+            courseCard.innerHTML = `
+                <div class="course-header" style="background: linear-gradient(135deg, ${course.color} 0%, ${course.color}dd 100%);">
+                    <div class="course-icon">${course.icon}</div>
+                    <div class="course-title">${course.title}</div>
+                    <div class="course-level">${course.level}</div>
+                </div>
+                <div class="course-body">
+                    <p class="course-desc">${course.description}</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <div class="info-label">Videos</div>
+                            <div class="info-value">${stats.videos}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Materials</div>
+                            <div class="info-value">${stats.materials}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Duration</div>
+                            <div class="info-value">${course.duration}</div>
+                        </div>
+                    </div>
+                    <button class="btn-enroll" onclick="enrollCourse('${courseId}')">Enroll Now</button>
+                </div>
+            `;
+
+            coursesGrid.appendChild(courseCard);
+        });
+    }
+
+    // ========== ENROLL IN COURSE ==========
+    function enrollCourse(courseId) {
+        currentCourseId = courseId;
+        currentVideoIndex = 0;
+        openVideoModal();
+    }
+
+    // ========== VIDEO MODAL ==========
+    function openVideoModal() {
+        const course = storage.getCourse(currentCourseId);
+        const videos = course.videos || [];
+        
+        if (videos.length === 0) {
+            alert('No videos available for this course yet.');
+            return;
+        }
+
+        document.getElementById('videoModal').classList.add('active');
+        loadVideo(0);
+        loadVideoList();
+        loadMaterials();
+    }
+
+    function closeVideoModal() {
+        document.getElementById('videoModal').classList.remove('active');
+    }
+
+    function loadVideo(index) {
+        const course = storage.getCourse(currentCourseId);
+        const videos = course.videos || [];
+        
+        if (index >= 0 && index < videos.length) {
+            currentVideoIndex = index;
+            const video = videos[index];
+            
+            document.getElementById('videoModalTitle').textContent = course.title;
+            document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${video.id}`;
+            document.getElementById('videoTitle').textContent = video.title;
+            document.getElementById('videoDesc').textContent = `Duration: ${video.duration}`;
+        }
+    }
+
+    function loadVideoList() {
+        const course = storage.getCourse(currentCourseId);
+        const videos = course.videos || [];
+        const videoList = document.getElementById('videoList');
+        videoList.innerHTML = '<h3 style="color: #333; margin-bottom: 15px;">📹 All Videos</h3>';
+        
+        const list = document.createElement('div');
+        videos.forEach((video, index) => {
+            const item = document.createElement('div');
+            item.className = `video-item ${index === currentVideoIndex ? 'active' : ''}`;
+            item.onclick = () => loadVideo(index);
+            item.innerHTML = `
+                <div class="video-item-title">${index + 1}. ${video.title}</div>
+                <div class="video-item-duration">⏱️ ${video.duration}</div>
+            `;
+            list.appendChild(item);
+        });
+        videoList.appendChild(list);
+    }
+
+    function loadMaterials() {
+        const course = storage.getCourse(currentCourseId);
+        const materials = course.materials || [];
+        const materialsList = document.getElementById('materialsList');
+        materialsList.innerHTML = '';
+
+        if (materials.length === 0) {
+            materialsList.innerHTML = '<p style="color: #999; text-align: center;">No materials available yet.</p>';
+            return;
+        }
+
+        materials.forEach(material => {
+            const card = document.createElement('div');
+            card.className = 'material-card';
+            card.innerHTML = `
+                <div class="material-type">${material.type}</div>
+                <div class="material-title">${material.title}</div>
+                <div class="material-desc">${material.desc}</div>
+                <button class="btn-download" onclick="window.open('${material.url}', '_blank')">
+                    📥 Open
+                </button>
+            `;
+            materialsList.appendChild(card);
+        });
+    }
+
+    // ========== QUIZ FUNCTIONS ==========
+    function startQuiz() {
+        const course = storage.getCourse(currentCourseId);
+        const quiz = course.quiz || [];
+        
+        if (quiz.length === 0) {
+            alert('No quiz available for this course yet.');
+            return;
+        }
+
+        currentQuizIndex = 0;
+        quizAnswers = {};
+        document.getElementById('quizTitle').textContent = `${course.title} - Quiz`;
+        document.getElementById('quizTotal').textContent = quiz.length;
+        
+        document.getElementById('quizModal').classList.add('active');
+        loadQuizQuestion(0);
+    }
+
+    function loadQuizQuestion(index) {
+        const course = storage.getCourse(currentCourseId);
+        const quiz = course.quiz || [];
+        
+        if (index >= 0 && index < quiz.length) {
+            currentQuizIndex = index;
+            const question = quiz[index];
+            
+            document.getElementById('quizProgress').textContent = index + 1;
+            
+            const container = document.getElementById('quizQuestionsContainer');
+            container.innerHTML = `
+                <div class="quiz-question">
+                    <h3>${question.q}</h3>
+                    ${question.opts.map((opt, i) => `
+                        <div class="quiz-option">
+                            <label>
+                                <input type="radio" name="answer" value="${i}" required>
+                                ${opt}
+                            </label>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+    }
+
+    function submitQuiz(event) {
+        event.preventDefault();
+        const answer = document.querySelector('input[name="answer"]:checked');
+        
+        if (!answer) {
+            alert('Please select an answer');
+            return;
+        }
+
+        quizAnswers[currentQuizIndex] = parseInt(answer.value);
+        
+        const course = storage.getCourse(currentCourseId);
+        const quiz = course.quiz || [];
+        
+        if (currentQuizIndex < quiz.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            showQuizResults();
+        }
+    }
+
+    function showQuizResults() {
+        const course = storage.getCourse(currentCourseId);
+        const quiz = course.quiz || [];
+        
+        let correct = 0;
+        Object.entries(quizAnswers).forEach(([index, answer]) => {
+            if (quiz[index].ans === answer) {
+                correct++;
+            }
+        });
+
+        const percentage = Math.round((correct / quiz.length) * 100);
+        const passed = percentage >= 70;
+
+        alert(`
+Quiz Completed!
+
+Score: ${correct}/${quiz.length} (${percentage}%)
+${passed ? '✓ PASSED' : '✗ FAILED'}
+
+${passed ? 'Great job! You can proceed to the next lesson.' : 'Try again to improve your score.'}
+        `);
+
+        closeQuizModal();
+    }
+
+    function closeQuizModal() {
+        document.getElementById('quizModal').classList.remove('active');
+    }
+
+    // ========== UTILITIES ==========
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // ========== INITIALIZATION ==========
+    window.addEventListener('load', () => {
+        loadCourses();
+    });
+</script>
+
+</body>
+</html>
