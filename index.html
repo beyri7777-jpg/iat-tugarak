@@ -20,13 +20,13 @@
 
         /* ========== HEADER & NAVIGATION ========== */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
             color: white;
             padding: 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 255, 136, 0.2);
         }
 
         nav {
@@ -47,10 +47,16 @@
             gap: 10px;
         }
 
-        .nav-links {
+        .nav-center {
             display: flex;
             gap: 30px;
             list-style: none;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 15px;
             align-items: center;
         }
 
@@ -59,9 +65,39 @@
             text-decoration: none;
             transition: opacity 0.3s;
             cursor: pointer;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-btn:hover {
             opacity: 0.8;
         }
 
@@ -71,6 +107,9 @@
             border-radius: 6px;
             transition: background 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
         }
 
         .btn-admin:hover {
@@ -79,7 +118,7 @@
 
         /* ========== HERO SECTION ========== */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
             color: white;
             padding: 80px 40px;
             text-align: center;
@@ -112,7 +151,7 @@
 
         .btn-primary {
             background: white;
-            color: #667eea;
+            color: #00cc6a;
             padding: 12px 30px;
             border: none;
             border-radius: 8px;
@@ -124,7 +163,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
         }
 
         .btn-secondary {
@@ -141,7 +180,7 @@
 
         .btn-secondary:hover {
             background: white;
-            color: #667eea;
+            color: #00cc6a;
         }
 
         /* ========== CONTAINER ========== */
@@ -180,14 +219,15 @@
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            border: 1px solid rgba(0, 255, 136, 0.1);
         }
 
         .course-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.15);
         }
 
         .course-header {
@@ -246,23 +286,24 @@
         .info-value {
             font-size: 18px;
             font-weight: 700;
-            color: #333;
+            color: #00cc6a;
         }
 
         .btn-enroll {
             width: 100%;
             padding: 12px;
-            background: #667eea;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
             color: white;
             border: none;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .btn-enroll:hover {
-            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
         }
 
         /* ========== VIDEO PLAYER MODAL ========== */
@@ -291,11 +332,12 @@
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
+            border: 2px solid rgba(0, 255, 136, 0.2);
         }
 
         .modal-header {
             padding: 20px 30px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 2px solid rgba(0, 255, 136, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -321,7 +363,7 @@
         }
 
         .modal-close:hover {
-            color: #333;
+            color: #00cc6a;
         }
 
         .modal-body {
@@ -356,6 +398,7 @@
             background: #f9f9f9;
             border-radius: 8px;
             overflow: hidden;
+            border: 1px solid rgba(0, 255, 136, 0.1);
         }
 
         .video-item {
@@ -374,8 +417,8 @@
         }
 
         .video-item.active {
-            background: #e8eaf6;
-            border-left: 4px solid #667eea;
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00cc6a;
         }
 
         .video-item-title {
@@ -393,7 +436,7 @@
         .materials-section {
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 2px solid rgba(0, 255, 136, 0.1);
         }
 
         .materials-list {
@@ -406,23 +449,23 @@
             background: white;
             padding: 15px;
             border-radius: 8px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid rgba(0, 255, 136, 0.2);
             transition: all 0.3s;
         }
 
         .material-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
+            border-color: #00cc6a;
+            box-shadow: 0 2px 10px rgba(0, 255, 136, 0.15);
         }
 
         .material-type {
             display: inline-block;
-            background: #f0f0f0;
+            background: rgba(0, 255, 136, 0.1);
             padding: 4px 10px;
             border-radius: 4px;
             font-size: 11px;
             font-weight: 600;
-            color: #667eea;
+            color: #00cc6a;
             text-transform: uppercase;
             margin-bottom: 10px;
         }
@@ -442,18 +485,19 @@
         .btn-download {
             width: 100%;
             padding: 8px;
-            background: #667eea;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
             color: white;
             border: none;
             border-radius: 6px;
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .btn-download:hover {
-            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 255, 136, 0.2);
         }
 
         /* ========== QUIZ MODAL ========== */
@@ -483,6 +527,7 @@
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
+            border: 2px solid rgba(0, 255, 136, 0.2);
         }
 
         .quiz-header {
@@ -497,7 +542,8 @@
 
         .quiz-progress {
             font-size: 14px;
-            color: #999;
+            color: #00cc6a;
+            font-weight: 600;
         }
 
         .quiz-question {
@@ -522,11 +568,13 @@
 
         .quiz-option:hover {
             background: #f0f0f0;
+            border-color: #00cc6a;
         }
 
         .quiz-option input {
             margin-right: 10px;
             cursor: pointer;
+            accent-color: #00cc6a;
         }
 
         .quiz-option label {
@@ -552,12 +600,13 @@
         }
 
         .btn-submit-quiz {
-            background: #667eea;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
             color: white;
         }
 
         .btn-submit-quiz:hover {
-            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
         }
 
         .btn-cancel-quiz {
@@ -571,7 +620,7 @@
 
         /* ========== FOOTER ========== */
         footer {
-            background: #1a1a2e;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
             padding: 40px;
             text-align: center;
@@ -598,7 +647,7 @@
         }
 
         .footer-links a:hover {
-            color: #667eea;
+            color: #00ff88;
         }
 
         .footer-bottom {
@@ -616,7 +665,8 @@
                 padding: 15px 20px;
             }
 
-            .nav-links {
+            .nav-center,
+            .nav-right {
                 flex-direction: column;
                 gap: 10px;
                 width: 100%;
@@ -669,30 +719,41 @@
         <div class="logo">
             🎓 iat-tugarak
         </div>
-        <ul class="nav-links">
-            <li><a onclick="scrollToSection('courses')">Courses</a></li>
-            <li><a onclick="scrollToSection('about')">About</a></li>
-            <li><a href="admin.html" class="btn-admin">🔐 Admin Panel</a></li>
-        </ul>
+        <div class="nav-center">
+            <a onclick="scrollToSection('courses')" style="text-decoration: none; color: white; cursor: pointer;">
+                <span data-text="courses">Courses</span>
+            </a>
+            <a onclick="scrollToSection('about')" style="text-decoration: none; color: white; cursor: pointer;">
+                <span data-text="about">About</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="uz" onclick="switchLanguage('uz')">🇺🇿 O'z</button>
+                <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">🇬🇧 Eng</button>
+                <button class="lang-btn" data-lang="ru" onclick="switchLanguage('ru')">🇷🇺 Рус</button>
+            </div>
+            <a href="admin.html" class="btn-admin">🔐 <span data-text="adminpanel">Admin</span></a>
+        </div>
     </nav>
 </header>
 
 <!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-content">
-        <h1>Welcome to iat-tugarak</h1>
-        <p>Learn Web Design, AI, and Cybersecurity from industry experts</p>
+        <h1 data-text="welcome">Welcome to iat-tugarak</h1>
+        <p data-text="hero_desc">Learn Web Design, AI, and Cybersecurity from industry experts</p>
         <div class="hero-buttons">
-            <button class="btn-primary" onclick="scrollToSection('courses')">Explore Courses</button>
-            <button class="btn-secondary" onclick="scrollToSection('about')">Learn More</button>
+            <button class="btn-primary" onclick="scrollToSection('courses')" data-text="explore">Explore Courses</button>
+            <button class="btn-secondary" onclick="scrollToSection('about')" data-text="learnmore">Learn More</button>
         </div>
     </div>
 </section>
 
 <!-- COURSES SECTION -->
 <section class="courses-section container" id="courses">
-    <h2 class="section-title">Our Courses</h2>
-    <p class="section-subtitle">Choose from our carefully curated learning programs</p>
+    <h2 class="section-title" data-text="courses_title">Our Courses</h2>
+    <p class="section-subtitle" data-text="courses_desc">Choose from our carefully curated learning programs</p>
     <div class="courses-grid" id="coursesGrid">
         <!-- Courses will be loaded here -->
     </div>
@@ -702,12 +763,12 @@
 <footer>
     <div class="footer-content">
         <div class="footer-links">
-            <a href="#courses">Courses</a>
-            <a href="admin.html">Admin Panel</a>
-            <a href="#about">About</a>
+            <a href="#courses" data-text="courses">Courses</a>
+            <a href="admin.html" data-text="adminpanel">Admin Panel</a>
+            <a href="#about" data-text="about">About</a>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 iat-tugarak. All rights reserved. | Learn. Grow. Succeed.</p>
+            <p>&copy; 2026 iat-tugarak. <span data-text="footer_text">All rights reserved. | Learn. Grow. Succeed.</span></p>
         </div>
     </div>
 </footer>
@@ -731,7 +792,7 @@
                 <!-- Videos will be listed here -->
             </div>
             <div class="materials-section">
-                <h3 style="color: #333; margin-bottom: 15px;">📚 Course Materials</h3>
+                <h3 style="color: #333; margin-bottom: 15px;">📚 <span data-text="materials">Course Materials</span></h3>
                 <div class="materials-list" id="materialsList">
                     <!-- Materials will be listed here -->
                 </div>
@@ -744,14 +805,14 @@
 <div id="quizModal" class="quiz-modal">
     <div class="quiz-content">
         <div class="quiz-header">
-            <h2 id="quizTitle">Quiz</h2>
-            <p class="quiz-progress"><span id="quizProgress">1</span> of <span id="quizTotal">5</span></p>
+            <h2 id="quizTitle" data-text="quiz">Quiz</h2>
+            <p class="quiz-progress"><span id="quizProgress">1</span> <span data-text="of">of</span> <span id="quizTotal">5</span></p>
         </div>
         <form id="quizForm" onsubmit="submitQuiz(event)">
             <div id="quizQuestionsContainer"></div>
             <div class="quiz-buttons">
-                <button type="submit" class="btn-submit-quiz">Submit Answer</button>
-                <button type="button" class="btn-cancel-quiz" onclick="closeQuizModal()">Cancel</button>
+                <button type="submit" class="btn-submit-quiz" data-text="submit">Submit Answer</button>
+                <button type="button" class="btn-cancel-quiz" data-text="cancel" onclick="closeQuizModal()">Cancel</button>
             </div>
         </form>
     </div>
@@ -759,11 +820,103 @@
 
 <script src="data.js"></script>
 <script>
+    // ========== TRANSLATION DATA ==========
+    const translations = {
+        uz: {
+            welcome: "iat-tugarak'ga Xush Kelibsiz",
+            hero_desc: "Web Dizayn, Sun'iy Intellekt va Kiberxavfsizlikni o'zlashtiring",
+            explore: "Kurslarni Ko'rish",
+            learnmore: "Ko'proq O'rganish",
+            courses_title: "Bizning Kurslar",
+            courses_desc: "Puxta tanlangan o'quv dasturlaridan tanlang",
+            materials: "Kurs Materiallari",
+            videos: "Videolar",
+            materials_label: "Materiallar",
+            duration: "Davomiylik",
+            quiz: "Viktorina",
+            submit: "Javobni Yuborish",
+            cancel: "Bekor Qilish",
+            of: "dan",
+            adminpanel: "Admin Paneli",
+            courses: "Kurslar",
+            about: "Haqida",
+            footer_text: "Barcha huquqlar himoyalangan. | O'rganing. O'sib Chiqing. Muvaffaq Boling."
+        },
+        en: {
+            welcome: "Welcome to iat-tugarak",
+            hero_desc: "Learn Web Design, AI, and Cybersecurity from industry experts",
+            explore: "Explore Courses",
+            learnmore: "Learn More",
+            courses_title: "Our Courses",
+            courses_desc: "Choose from our carefully curated learning programs",
+            materials: "Course Materials",
+            videos: "All Videos",
+            materials_label: "Materials",
+            duration: "Duration",
+            quiz: "Quiz",
+            submit: "Submit Answer",
+            cancel: "Cancel",
+            of: "of",
+            adminpanel: "Admin Panel",
+            courses: "Courses",
+            about: "About",
+            footer_text: "All rights reserved. | Learn. Grow. Succeed."
+        },
+        ru: {
+            welcome: "Добро пожаловать в iat-tugarak",
+            hero_desc: "Изучайте веб-дизайн, ИИ и кибербезопасность у экспертов",
+            explore: "Обзор Курсов",
+            learnmore: "Узнать Больше",
+            courses_title: "Наши Курсы",
+            courses_desc: "Выберите из наших тщательно подобранных программ обучения",
+            materials: "Материалы Курса",
+            videos: "Все Видео",
+            materials_label: "Материалы",
+            duration: "Длительность",
+            quiz: "Викторина",
+            submit: "Отправить Ответ",
+            cancel: "Отмена",
+            of: "из",
+            adminpanel: "Панель Администратора",
+            courses: "Курсы",
+            about: "О нас",
+            footer_text: "Все права защищены. | Учитесь. Растите. Успевайте."
+        }
+    };
+
+    let currentLanguage = 'uz';
     let storage = new DataStorage();
     let currentCourseId = null;
     let currentVideoIndex = 0;
     let currentQuizIndex = 0;
     let quizAnswers = {};
+
+    // ========== LANGUAGE SWITCHING ==========
+    function switchLanguage(lang) {
+        currentLanguage = lang;
+        localStorage.setItem('selectedLanguage', lang);
+
+        // Update active button
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+
+        // Update all text elements
+        document.querySelectorAll('[data-text]').forEach(el => {
+            const key = el.getAttribute('data-text');
+            if (translations[lang] && translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+
+        // Reload courses to update text
+        loadCourses();
+    }
+
+    function getTranslation(key) {
+        return translations[currentLanguage][key] || key;
+    }
 
     // ========== LOAD COURSES ==========
     function loadCourses() {
@@ -792,19 +945,19 @@
                     <p class="course-desc">${course.description}</p>
                     <div class="course-info">
                         <div class="info-item">
-                            <div class="info-label">Videos</div>
+                            <div class="info-label">📹 ${getTranslation('videos')}</div>
                             <div class="info-value">${stats.videos}</div>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">Materials</div>
+                            <div class="info-label">📄 ${getTranslation('materials_label')}</div>
                             <div class="info-value">${stats.materials}</div>
                         </div>
                         <div class="info-item">
-                            <div class="info-label">Duration</div>
+                            <div class="info-label">⏱️ ${getTranslation('duration')}</div>
                             <div class="info-value">${course.duration}</div>
                         </div>
                     </div>
-                    <button class="btn-enroll" onclick="enrollCourse('${courseId}')">Enroll Now</button>
+                    <button class="btn-enroll" onclick="enrollCourse('${courseId}')">🚀 ${getTranslation('explore')}</button>
                 </div>
             `;
 
@@ -825,7 +978,7 @@
         const videos = course.videos || [];
         
         if (videos.length === 0) {
-            alert('No videos available for this course yet.');
+            alert('❌ ' + (currentLanguage === 'uz' ? 'Bu kurs uchun video mavjud emas.' : currentLanguage === 'ru' ? 'Для этого курса нет видео.' : 'No videos available for this course yet.'));
             return;
         }
 
@@ -850,7 +1003,7 @@
             document.getElementById('videoModalTitle').textContent = course.title;
             document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${video.id}`;
             document.getElementById('videoTitle').textContent = video.title;
-            document.getElementById('videoDesc').textContent = `Duration: ${video.duration}`;
+            document.getElementById('videoDesc').textContent = `⏱️ ${getTranslation('duration')}: ${video.duration}`;
         }
     }
 
@@ -858,7 +1011,7 @@
         const course = storage.getCourse(currentCourseId);
         const videos = course.videos || [];
         const videoList = document.getElementById('videoList');
-        videoList.innerHTML = '<h3 style="color: #333; margin-bottom: 15px;">📹 All Videos</h3>';
+        videoList.innerHTML = `<h3 style="color: #333; margin-bottom: 15px;">📹 ${getTranslation('videos')}</h3>`;
         
         const list = document.createElement('div');
         videos.forEach((video, index) => {
@@ -881,7 +1034,8 @@
         materialsList.innerHTML = '';
 
         if (materials.length === 0) {
-            materialsList.innerHTML = '<p style="color: #999; text-align: center;">No materials available yet.</p>';
+            const msg = currentLanguage === 'uz' ? 'Materiallar hozircha mavjud emas.' : currentLanguage === 'ru' ? 'Материалы еще недоступны.' : 'No materials available yet.';
+            materialsList.innerHTML = `<p style="color: #999; text-align: center;">${msg}</p>`;
             return;
         }
 
@@ -889,7 +1043,7 @@
             const card = document.createElement('div');
             card.className = 'material-card';
             card.innerHTML = `
-                <div class="material-type">${material.type}</div>
+                <div class="material-type">${material.type.toUpperCase()}</div>
                 <div class="material-title">${material.title}</div>
                 <div class="material-desc">${material.desc}</div>
                 <button class="btn-download" onclick="window.open('${material.url}', '_blank')">
@@ -906,13 +1060,13 @@
         const quiz = course.quiz || [];
         
         if (quiz.length === 0) {
-            alert('No quiz available for this course yet.');
+            alert('❌ ' + (currentLanguage === 'uz' ? 'Bu kurs uchun viktorina mavjud emas.' : currentLanguage === 'ru' ? 'Для этого курса нет викторины.' : 'No quiz available for this course yet.'));
             return;
         }
 
         currentQuizIndex = 0;
         quizAnswers = {};
-        document.getElementById('quizTitle').textContent = `${course.title} - Quiz`;
+        document.getElementById('quizTitle').textContent = `${course.title} - ${getTranslation('quiz')}`;
         document.getElementById('quizTotal').textContent = quiz.length;
         
         document.getElementById('quizModal').classList.add('active');
@@ -951,7 +1105,8 @@
         const answer = document.querySelector('input[name="answer"]:checked');
         
         if (!answer) {
-            alert('Please select an answer');
+            const msg = currentLanguage === 'uz' ? 'Javob tanlang' : currentLanguage === 'ru' ? 'Выберите ответ' : 'Please select an answer';
+            alert(msg);
             return;
         }
 
@@ -981,15 +1136,16 @@
         const percentage = Math.round((correct / quiz.length) * 100);
         const passed = percentage >= 70;
 
-        alert(`
-Quiz Completed!
+        let message = '';
+        if (currentLanguage === 'uz') {
+            message = `Viktorina tugadi!\n\nNatija: ${correct}/${quiz.length} (${percentage}%)\n${passed ? '✓ O\'TGAN' : '✗ O\'TMAGANI QOLDI'}\n\n${passed ? 'Zo\'r! Keyingi darsga o\'tishingiz mumkin.' : 'Natijangizni yaxshilash uchun qayta urinib ko\'ring.'}`;
+        } else if (currentLanguage === 'ru') {
+            message = `Викторина завершена!\n\nОценка: ${correct}/${quiz.length} (${percentage}%)\n${passed ? '✓ ПРОШЕЛ' : '✗ НЕ ПРОШЕЛ'}\n\n${passed ? 'Отлично! Вы можете перейти к следующему уроку.' : 'Попробуйте еще раз, чтобы улучшить свой результат.'}`;
+        } else {
+            message = `Quiz Completed!\n\nScore: ${correct}/${quiz.length} (${percentage}%)\n${passed ? '✓ PASSED' : '✗ FAILED'}\n\n${passed ? 'Great job! You can proceed to the next lesson.' : 'Try again to improve your score.'}`;
+        }
 
-Score: ${correct}/${quiz.length} (${percentage}%)
-${passed ? '✓ PASSED' : '✗ FAILED'}
-
-${passed ? 'Great job! You can proceed to the next lesson.' : 'Try again to improve your score.'}
-        `);
-
+        alert(message);
         closeQuizModal();
     }
 
@@ -1007,6 +1163,9 @@ ${passed ? 'Great job! You can proceed to the next lesson.' : 'Try again to impr
 
     // ========== INITIALIZATION ==========
     window.addEventListener('load', () => {
+        // Restore language preference
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'uz';
+        switchLanguage(savedLanguage);
         loadCourses();
     });
 </script>
